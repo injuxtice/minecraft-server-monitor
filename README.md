@@ -13,4 +13,4 @@ monitors when a player joins or leaves
 ```python3 -m pip install mcstatus```
 
 # in action
-![in action](https://i.imgur.com/0Z7Z2Zg.png)
+![in action](https://raw.githubusercontent.com/injuxtice/minecraft-server-monitor/main/example.png)
