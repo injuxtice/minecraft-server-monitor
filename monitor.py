@@ -1,6 +1,6 @@
 from mcstatus import JavaServer
 import argparse
-
+import datetime
 activePlayers = 0
 players = 0
 checkServer = False
@@ -20,20 +20,22 @@ def check_players():
         activePlayers = status.players.online
         return int(activePlayers)
 
+
 #if name is main
 if __name__ == "__main__":
     print("Checking server status...")
     while True:
         try:
             activePlayers = check_players()
+            timeStamp = datetime.datetime.now()
             if checkServer == False:
-                print("Server is online! Server has " + str(activePlayers) + " players online. Script will update when player joins/leaves")
+                print(f"{timeStamp} Server is online! Server has " + str(activePlayers) + " players online. Script will update when player joins/leaves")
                 checkServer = True
             if players > activePlayers:
                 players = activePlayers
-                print(f"Player left, there are now {players} players online")
+                print(f"Player left, there are now {players} players online | {timeStamp}")
             elif players < activePlayers:
                 players = activePlayers
-                print(f"Player joined, there are now {players} players online")
+                print(f"Player joined, there are now {players} players online | {timeStamp}")
         except Exception:
             print("Server is offline")
